@@ -1,0 +1,1 @@
+Dependencies/mysql-connector-c++-8.4.0-winx64/** filter=lfs diff=lfs merge=lfs -text
