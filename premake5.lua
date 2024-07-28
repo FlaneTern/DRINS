@@ -9,10 +9,6 @@ workspace "DRINS"
 
 OutputDir = "%{cfg.buildcfg}-%{cfg.architecture}"
 
-IncludeDir = {}
-IncludeDir["MySQL"] = "afawefeawfe"
-
-
 project "DRINS"
     location "DRINS"
     kind "ConsoleApp"
@@ -22,27 +18,13 @@ project "DRINS"
     targetdir ("bin/" .. OutputDir .. "/%{prj.name}")
     objdir ("bin-itm/" .. OutputDir .. "/%{prj.name}")
 
-    files{
+    files {
         "%{prj.name}/src/**.h",
         "%{prj.name}/src/**.cpp",
-        "%{prj.name}/res/**",
+        "%{prj.name}/res/**"
     }
 
-    includedirs{
-        "%{prj.name}/src",
-        "Rapier/vendor/spdlog/include",
-        "Rapier",
-        "Rapier/src",
-        "%{IncludeDir.glm}",
-        "%{IncludeDir.ImGui}",
-        "%{IncludeDir.entt}"
-    }
-        
-    links{
-        "Rapier",
-        "ImGui"
-    }
-
+    includedirs { "%{prj.name}/src" }
 
     systemversion "latest"
 
@@ -61,3 +43,15 @@ project "DRINS"
     
     filter "system:linux"
         defines { "PLATFORM_LINUX" }
+
+    -- filter { "system:windows", "configurations:Debug" }
+
+    filter { "system:windows", "configurations:Release" }
+        includedirs { "Dependencies/mysql-connector-c++-8.4.0-winx64/include/jdbc" }
+        libdirs { "Dependencies/mysql-connector-c++-8.4.0-winx64/lib64/vs14" }
+        links { "mysqlcppconn-static" }
+
+
+    -- filter { "system:linux", "configurations:Debug" }
+
+    -- filter { "system:linux", "configurations:Release" }
