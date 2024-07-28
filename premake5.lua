@@ -28,6 +28,8 @@ project "DRINS"
 
     systemversion "latest"
 
+    defines "STATIC_CONCPP"
+
     filter "configurations:Debug"
         defines "_DEBUG"
         runtime "Debug"

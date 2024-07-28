@@ -396,3 +396,11 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+
+
+# My Additions
+*.sln
+*.vcxproj
+bin-itm/

@@ -12,9 +12,9 @@ namespace DRINS
 {
     // CONSTANTS
     static constexpr char c_Server[] = "tcp://127.0.0.1:3306\0";
-    static constexpr char c_Username[] = "WSN\0";
-    static constexpr char c_Password[] = "wsn123\0";
-    static constexpr char c_DatabaseName[] = "WSN19\0";
+    static constexpr char c_Username[] = "DRINS\0";
+    static constexpr char c_Password[] = "DRINS123\0";
+    static constexpr char c_DatabaseName[] = "DRINS\0";
 
 
 	// A LOT OF UNFREED STUFF such as driver, connection, and statements. Maybe free these?
