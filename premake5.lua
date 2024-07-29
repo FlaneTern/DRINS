@@ -6,7 +6,6 @@ workspace "DRINS"
     startproject "DRINS"
 
 
-
 OutputDir = "%{cfg.buildcfg}-%{cfg.architecture}"
 
 project "DRINS"
@@ -28,8 +27,6 @@ project "DRINS"
 
     systemversion "latest"
 
-    defines "STATIC_CONCPP"
-
     filter "configurations:Debug"
         defines "_DEBUG"
         runtime "Debug"
@@ -41,7 +38,7 @@ project "DRINS"
         optimize "on"
 
     filter "system:windows"
-        defines { "PLATFORM_WINDOWS" }
+        defines { "PLATFORM_WINDOWS", "STATIC_CONCPP" }
     
     filter "system:linux"
         defines { "PLATFORM_LINUX" }
@@ -56,4 +53,8 @@ project "DRINS"
 
     -- filter { "system:linux", "configurations:Debug" }
 
-    -- filter { "system:linux", "configurations:Release" }
+    filter { "system:linux", "configurations:Release" }
+        includedirs { "Dependencies/mysql-connector-c++-8.4.0-linux-glibc2.28-x86-64bit/include/jdbc" }
+        libdirs { "Dependencies/mysql-connector-c++-8.4.0-linux-glibc2.28-x86-64bit/lib64" }
+        links { "mysqlcppconn" }
+        linkoptions { "-Wl,-rpath,../../../Dependencies/mysql-connector-c++-8.4.0-linux-glibc2.28-x86-64bit/lib64"}
