@@ -114,7 +114,7 @@ namespace DRINS
         }
     }
 
-    void Database::Insert(uint64_t simulationID, const std::vector<SensorNode>& sensorNodes, const const SimulationType& st)
+    void Database::Insert(uint64_t simulationID, const std::vector<SensorNode>& sensorNodes, const SimulationType& st)
     {
         try
         {

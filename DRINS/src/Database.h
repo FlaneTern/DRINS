@@ -23,7 +23,7 @@ namespace DRINS
 		/// </summary>
 		/// <param name="simulationID">Simulation ID</param>
 		/// <param name="sensorNodes">Sensor Nodes within the simulation</param>
-		void Insert(uint64_t simulationID, const std::vector<SensorNode>& sensorNodes, const const SimulationType& st);
+		void Insert(uint64_t simulationID, const std::vector<SensorNode>& sensorNodes, const SimulationType& st);
 
 		uint64_t GetLatestSimulationID();
 
